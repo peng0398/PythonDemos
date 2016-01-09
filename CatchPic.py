@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import requests
 from lxml import etree
 headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36'}
@@ -17,7 +18,7 @@ def downPic(n):
 		    print('Downloading: '+url)
 		    try:
 		    	img_content = requests.get(url,headers=headers,timeout=10)
-		    	fp = open('/home/bob/pic/' + str(n) + '-' + str(k) + '-' + str(i) + '.jpg', 'wb')
+		    	fp = open('/home/bob/桌面/Pic/' + str(n) + '-' + str(k) + '-' + str(i) + '.jpg', 'wb')
 		    	fp.write(img_content.content)
 		    	fp.close()
 		    except requests.exceptions.Timeout:
@@ -27,5 +28,5 @@ def downPic(n):
 		pass
         k += 1
 
-for j in range(8, 21):
+for j in range(9, 21):
     downPic(j)
