@@ -91,20 +91,20 @@ def generate_R():
 	out.write('\n}')
 	out.close()
 
-
-try:
-	f = open(sys.argv[1],'r')
-	for line in f.readlines():
-		if('<public type' in line):
-			#去掉收尾，保留有效字段
-			_str = line[(line.find('c')+2):(line.find('/>')-1)]
-			#s = json.loads(json_str)
-			#拆分字符串，方便后续解析			
-			l = _str.split(' ')
-			#调用解析函数
-			parse(l)
-	#完成解析后进行R.java文件生成操作
-	generate_R()
-finally:
-	if f:
-		f.close()
+if __name__ == '__main__':	
+	try:
+		f = open(sys.argv[1],'r')
+		for line in f.readlines():
+			if('<public type' in line):
+				#去掉收尾，保留有效字段
+				_str = line[(line.find('c')+2):(line.find('/>')-1)]
+				#s = json.loads(json_str)
+				#拆分字符串，方便后续解析			
+				l = _str.split(' ')
+				#调用解析函数
+				parse(l)
+		#完成解析后进行R.java文件生成操作
+		generate_R()
+	finally:
+		if f:
+			f.close()
