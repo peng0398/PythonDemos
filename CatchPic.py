@@ -28,5 +28,5 @@ def downPic(n):
 		pass
         k += 1
 
-for j in range(9, 21):
+for j in range(100, 200):
     downPic(j)
