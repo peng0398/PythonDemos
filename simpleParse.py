@@ -46,7 +46,6 @@ def parse(x):
 def write_modul(modul,out):
 	for info in modul:
 		#针对有id的类型进行操作
-		print info
 		if '0x' in info[-1]:
 		#找出name
 			name = info[len(info)-2]
