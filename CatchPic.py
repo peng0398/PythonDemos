@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 import requests
+import os
 from lxml import etree
 headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36'}
 def downPic(n):
@@ -18,7 +19,7 @@ def downPic(n):
 		    print('Downloading: '+url)
 		    try:
 		    	img_content = requests.get(url,headers=headers,timeout=10)
-		    	fp = open('/home/bob/桌面/Pic/' + str(n) + '-' + str(k) + '-' + str(i) + '.jpg', 'wb')
+		    	fp = open('Pic/' + str(n) + '-' + str(k) + '-' + str(i) + '.jpg', 'wb')
 		    	fp.write(img_content.content)
 		    	fp.close()
 		    except requests.exceptions.Timeout:
@@ -28,5 +29,11 @@ def downPic(n):
 		pass
         k += 1
 
-for j in range(100, 200):
+# The main Func
+if os.path.exists('Pic'):
+	pass
+else :
+	os.makedirs('Pic')
+
+for j in range(1, 20):
     downPic(j)
