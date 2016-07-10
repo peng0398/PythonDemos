@@ -1,0 +1,9 @@
+
+How to make gitbash push/pull without password
+
+1.Add the .git-credentials file to the root directory
+
+2.The content of the .git-credentials file is https://{username}:{password}@github.com
+
+3.run the command next:
+  git config credential.helper store
